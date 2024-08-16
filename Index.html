@@ -103,6 +103,89 @@
             z-index: -7;
         }
 
+        .backdrop {
+            z-index: -5;
+            position: absolute;
+            inset: 0;
+
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+
+            mask-image: linear-gradient(
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0.5) 10%,
+                    rgba(0, 0, 0, 0.8) 20%,
+                    rgba(0, 0, 0, 1) 30%,
+                    rgb(0, 0, 0)
+            );
+
+            -webkit-mask-image: linear-gradient(
+                    rgba(0, 0, 0, 0),
+                    rgba(0, 0, 0, 0.5) 10%,
+                    rgba(0, 0, 0, 0.8) 20%,
+                    rgba(0, 0, 0, 1) 30%,
+                    rgb(0, 0, 0)
+            );
+        }
+
+        .col {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: calc(0.3 * var(--m)) calc(0.8 * var(--m));
+            width: 28%;
+        }
+
+        .col2,
+        .col3 {
+            background-color: #121212;
+            border-radius: calc(0.5 * var(--m));
+        }
+
+        img {
+            height: calc(0.3 * var(--m));
+            object-fit: cover;
+        }
+
+        .social {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .link {
+            width: calc(0.8 * var(--m));
+            height: calc(0.8 * var(--m));
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: calc(0.1 * var(--m));
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 1000px) {
+            :root {
+                --m: 3rem;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            footer {
+                flex-direction: column;
+                padding: 5rem 20vw;
+            }
+
+            .col {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
