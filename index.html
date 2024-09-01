@@ -4,12 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic HTML Page</title>
+    <title>Modern HTML Page</title>
     <style>
-        @import url("https://fonts.googleapis.com/css?family=IBM%20Plex%20Sans:500|IBM%20Plex%20Sans:300");
+        @import url("https://fonts.googleapis.com/css?family=Roboto:500|Roboto:300");
 
         :root {
             --m: 4rem;
+            --primary-color: #0a9396;
+            --secondary-color: #ee9b00;
+            --background-color: #94d2bd;
+            --text-color: #001219;
+            --button-color: #ca6702;
+            --button-text-color: #ffffff;
         }
 
         * {
@@ -18,9 +24,9 @@
         }
 
         body {
-            background-color: black;
-            color: white;
-            font-family: "IBM Plex Sans";
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: "Roboto", sans-serif;
             font-weight: 300;
 
             display: flex;
@@ -29,7 +35,7 @@
             align-items: center;
             height: 190vh;
             margin: 0;
-            color: #d5d5d5;
+            color: var(--text-color);
             font-size: calc(0.3 * var(--m));
         }
 
@@ -49,8 +55,8 @@
         .card {
             height: calc(8 * var(--m));
             width: calc(12 * var(--m));
-            background: linear-gradient(120deg, #ff8064, #725bdc);
-            color: black;
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
             border-radius: calc(0.5 * var(--m));
 
             display: flex;
@@ -64,11 +70,11 @@
         }
 
         button {
-            background-color: #000;
+            background-color: var(--button-color);
             font-size: calc(0.4 * var(--m));
             border: none;
-            color: #e5e5e5;
-            font-family: "IBM Plex Sans";
+            color: var(--button-text-color);
+            font-family: "Roboto", sans-serif;
             font-weight: 400;
             padding: calc(0.35 * var(--m)) calc(0.8 * var(--m));
             border-radius: calc(0.3 * var(--m));
@@ -119,12 +125,92 @@
                     rgb(0, 0, 0)
             );
 
+            h3 {
+            font-weight: 500;
+            font-size: calc(0.6 * var(--m));
+            margin: 0;
+        }
+
+        .card {
+            height: calc(8 * var(--m));
+            width: calc(12 * var(--m));
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+            color: var(--button-text-color);
+            border-radius: calc(0.5 * var(--m));
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: var(--m);
+
+            position: fixed;
+            margin: calc(2 * var(--m)) calc(5 * var(--m)) calc(5 * var(--m)) calc(5 * var(--m));
+        }
+
+        button {
+            background-color: var(--button-color);
+            font-size: calc(0.4 * var(--m));
+            border: none;
+            color: var(--button-text-color);
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            padding: calc(0.35 * var(--m)) calc(0.8 * var(--m));
+            border-radius: calc(0.3 * var(--m));
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 80vh;
+            z-index: 500;
+            width: 100%;
+            height: 100vh;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: flex-end;
+            padding: 5rem 2vw;
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                    rgba(148, 210, 189, 0) 5%,
+                    rgba(148, 210, 189, 0.3) 20%,
+                    rgba(148, 210, 189, 0.6) 30%,
+                    rgba(148, 210, 189, 0.8) 40%,
+                    rgba(148, 210, 189, 1) 50%,
+                    rgb(148, 210, 189)
+            );
+            z-index: -7;
+        }
+
+        .backdrop {
+            z-index: -5;
+            position: absolute;
+            inset: 0;
+
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+
+            mask-image: linear-gradient(
+                    rgba(148, 210, 189, 0),
+                    rgba(148, 210, 189, 0.5) 10%,
+                    rgba(148, 210, 189, 0.8) 20%,
+                    rgba(148, 210, 189, 1) 30%,
+                    rgb(148, 210, 189)
+            );
+
             -webkit-mask-image: linear-gradient(
-                    rgba(0, 0, 0, 0),
-                    rgba(0, 0, 0, 0.5) 10%,
-                    rgba(0, 0, 0, 0.8) 20%,
-                    rgba(0, 0, 0, 1) 30%,
-                    rgb(0, 0, 0)
+                    rgba(148, 210, 189, 0),
+                    rgba(148, 210, 189, 0.5) 10%,
+                    rgba(148, 210, 189, 0.8) 20%,
+                    rgba(148, 210, 189, 1) 30%,
+                    rgb(148, 210, 189)
             );
         }
 
@@ -138,7 +224,7 @@
 
         .col2,
         .col3 {
-            background-color: #121212;
+            background-color: var(--primary-color);
             border-radius: calc(0.5 * var(--m));
         }
 
@@ -191,34 +277,35 @@
 
 <body>
     <div class="card">
-        <h2>Scroll Now<br>Thank Yourself Later</h2>
-        <button><a href="#footer">Scroll</a></button>
+        <h2>Explore Now<br>Embrace the Future</h2>
+        <button><a href="#footer">Discover More</a></button>
     </div>
     <footer id="footer">
         <div class="col col1">
-            <h3>CoolSite</h3>
-            <p>Made with <span style="color: #BA6573;">❤</span> by Prithvi</p>
+            <h3>FutureSite</h3>
+            <p>Crafted with <span style="color: var(--secondary-color);">❤</span> by Prithvi</p>
             <div class="social">
-                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/codepen_1.png" alt="" /></a>
-                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/x.png" alt="" /></a>
-                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/youtube_1.png" alt="" /></a>
+                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/codepen_1.png" alt="Codepen" /></a>
+                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/x.png" alt="Twitter" /></a>
+                <a href="" target="_blank" class="link"><img src="https://assets.codepen.io/9051928/youtube_1.png" alt="YouTube" /></a>
             </div>
             <p style="color: #818181; font-size: smaller">2024 © All Rights Reserved</p>
         </div>
         <div class="col col2">
-            <p>About</p>
-            <p>Our mission</p>
+            <p>About Us</p>
+            <p>Our Vision</p>
             <p>Privacy Policy</p>
-            <p>Terms of service</p>
+            <p>Terms of Service</p>
         </div>
         <div class="col col3">
-            <p>Services</p>
-            <p>Products</p>
-            <p>Join our team</p>
-            <p>Partner with us</p>
+            <p>Our Services</p>
+            <p>Our Products</p>
+            <p>Careers</p>
+            <p>Collaborate with Us</p>
         </div>
         <div class="backdrop"></div>
     </footer>
 </body>
 
 </html>
+
